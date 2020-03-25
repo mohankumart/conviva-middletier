@@ -1,10 +1,7 @@
 package com.test.conviva.api.address;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.modelmapper.ModelMapper;
 
 import java.util.ArrayList;
@@ -16,6 +13,7 @@ public class AddressController {
     @Autowired
     private AddressService addressService;
 
+    @CrossOrigin
     @GetMapping("/{id}")
     public List<AddressDTO> getAddresses(@PathVariable Long id) {
         List<Address> addresses = addressService.getAddresses(id);
@@ -27,6 +25,7 @@ public class AddressController {
         return addressDTOList;
     }
 
+    @CrossOrigin
     @GetMapping("/list")
     public List<Address> getAllAddresses() {
         return addressService.getAllAddresses();
