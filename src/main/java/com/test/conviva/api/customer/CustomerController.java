@@ -15,8 +15,14 @@ public class CustomerController {
 
     @CrossOrigin
     @GetMapping("/list")
-    public List<Customer> getAllCustomers() {
-        return customerService.getAllCustomers();
+    public List<Customer> getAllCustomers(@RequestParam int page) {
+        return customerService.getAllCustomers(page);
+    }
+
+    @CrossOrigin
+    @GetMapping("/count")
+    public Long getCount() {
+        return customerService.getCount();
     }
 
     @CrossOrigin
